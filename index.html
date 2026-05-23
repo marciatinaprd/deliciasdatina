@@ -266,7 +266,7 @@
             <div class="informativo-icon">🛒</div>
             <div class="informativo-text">
                 <strong>Finalize pelo WhatsApp</strong>
-                <p>Por fim, clique no botão Carrinho logo abaixo, preencha seus dados de entrega e clique para Finalizar pelo WhatsApp</p>
+                <p>Por fim, clique no botão Carrinho no canto da tela, confira seu pedido, preencha seus dados de entrega e clique para Finalizar pelo WhatsApp</p>
             </div>
         </div>
     </div>
@@ -850,6 +850,12 @@ if (cidade !== '') {
                     document.getElementById('pagina-carrinho').classList.add('ativa');
                     exibirCarrinho();
                 }
+
+                 // Rola a página até o topo da div .conteudo
+        const conteudo = document.querySelector('.conteudo');
+        if (conteudo) {
+            conteudo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
             });
         }
         
