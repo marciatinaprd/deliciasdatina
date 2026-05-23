@@ -119,6 +119,98 @@
     font-size: 1rem;
     line-height: 1.5;
 }
+
+        /* Bloco Informativo reformulado */
+.informativo {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 30px 25px;
+    background: linear-gradient(135deg, #fff5eb 0%, #ffe8e0 100%);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    text-align: left;
+    border: 1px solid #FFA6C9;
+}
+
+.informativo h3 {
+    color: #e86b9f;
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+    text-align: center;
+    border-bottom: 2px dashed #FFA6C9;
+    padding-bottom: 12px;
+    display: inline-block;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.informativo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.informativo-item {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.informativo-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.informativo-icon {
+    font-size: 2.2rem;
+    background-color: #FFA6C9;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.informativo-text strong {
+    color: #e86b9f;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.informativo-text p {
+    color: #666;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.informativo-dica {
+    background-color: #FFA6C9;
+    padding: 15px 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: white;
+    margin-top: 15px;
+}
+
+.informativo-dica strong {
+    color: #fff;
+    font-weight: bold;
+}
     
     </style>
 </head>
@@ -135,14 +227,46 @@
     <button data-pagina="contato">Contato</button>
 </div>
     
-    <div class="informativo">
-    <h3>📢 Informativo</h3>
-    <p>Esse é o cardápio digital da Delícias da Tina. </p>
-    <p>Fique a vontade para navegar entre os menus de Doces e Salgados para conhecer um pouco de nosso trabalho</p>
-    <p>Caso se interesse por algum produto, selecione o sabor desejado e clique em Adicionar ao Carrinho o número de vezes que desejar.</p>
-    <p>Lembre-se, caso queira alterar o sabor, modifique ele antes de clicar novamente em Adicionar ao Carrinho. Será indicado na tela a quantidade adicionada</p>
-    <p>Por fim, clique no botáo no canto inferior direito que te levará até o menu Carrinho. Nele poderá preencher os seus dados de contato e entrega e clicar no botão "Finalizar Pedido via WhatsApp" que te direcionará ao WhatsApp com todos os dados do pedido já digitados</p>        
-    <p>Na aba Contato, poderá encontrar informações </p>
+<div class="informativo">
+    <h3>🍰 Bem-vindo à Delícias da Tina!</h3>
+    
+    <div class="informativo-grid">
+        <div class="informativo-item">
+            <div class="informativo-icon">🍬</div>
+            <div class="informativo-text">
+                <strong>Cardápio digital</strong>
+                <p>Navegue pelos menus de Doces e Salgados</p>
+            </div>
+        </div>
+        
+        <div class="informativo-item">
+            <div class="informativo-icon">✨</div>
+            <div class="informativo-text">
+                <strong>Escolha seu sabor</strong>
+                <p>Selecione o sabor desejado e adicione ao carrinho</p>
+            </div>
+        </div>
+        
+        <div class="informativo-item">
+            <div class="informativo-icon">📦</div>
+            <div class="informativo-text">
+                <strong>Controle sua quantidade</strong>
+                <p>Clique quantas vezes quiser — o sistema soma</p>
+            </div>
+        </div>
+        
+        <div class="informativo-item">
+            <div class="informativo-icon">🛒</div>
+            <div class="informativo-text">
+                <strong>Finalize pelo WhatsApp</strong>
+                <p>Botão flutuante → preencha seus dados → envie</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="informativo-dica">
+        💡 <strong>Dica importante:</strong> antes de adicionar mais unidades, escolha ou altere o sabor. A quantidade será atualizada automaticamente no card do produto.
+    </div>
 </div>
 
 <div class="conteudo">
