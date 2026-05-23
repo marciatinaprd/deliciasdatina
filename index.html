@@ -211,6 +211,18 @@
     color: #fff;
     font-weight: bold;
 }
+
+        /* Estilo para o botão copiar PIX */
+.btn-copiar-pix {
+    transition: all 0.3s ease;
+}
+.btn-copiar-pix:hover {
+    background-color: #128C7E !important;
+    transform: scale(1.02);
+}
+#container-chave-pix {
+    border-left: 4px solid #25D366;
+}
     
     </style>
 </head>
@@ -600,15 +612,29 @@ if (selectSabor) {
                 
             </div>
             <div class="campo">
-                <label>Forma de pagamento *</label>
-                <select id="pagamento">
-                    <option value="">Selecione</option>
-                    <option value="PIX">PIX</option>
-                    <option value="Cartão de Crédito">Cartão de Crédito</option>
-                    <option value="Cartão de Débito">Cartão de Débito</option>
-                    <option value="Dinheiro">Dinheiro</option>
-                </select>
-            </div>
+    <label>Forma de pagamento *</label>
+    <select id="pagamento" onchange="toggleChavePix()">
+        <option value="">Selecione</option>
+        <option value="PIX">PIX</option>
+        <option value="Cartão de Crédito">Cartão de Crédito</option>
+        <option value="Cartão de Débito">Cartão de Débito</option>
+        <option value="Dinheiro">Dinheiro</option>
+    </select>
+</div>
+
+<!-- Bloco da chave PIX (inicialmente escondido) -->
+<div id="container-chave-pix" style="display: none; background-color: #e8f5e9; padding: 12px; border-radius: 8px; margin-bottom: 15px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+        <div>
+            <strong style="color: #2e7d32;">💚 Chave PIX:</strong>
+            <span style="font-family: monospace; font-size: 1.1rem; margin-left: 8px;">19982412638</span>
+        </div>
+        <button type="button" onclick="copiarChavePix()" class="btn-copiar-pix" style="background-color: #25D366; color: white; border: none; padding: 8px 20px; border-radius: 20px; cursor: pointer; font-weight: bold;">
+            📋 Copiar
+        </button>
+    </div>
+    <p style="font-size: 0.8rem; color: #555; margin-top: 8px;">Após finalizar o pedido, realize o pagamento para confirmar a reserva.</p>
+</div>
             <div class="aviso-limeira">
                 ⚠️ Prezados clientes, atendemos somente na cidade de Limeira, SP atualmente.
             </div>
@@ -883,7 +909,34 @@ function pesquisarCep() {
         });
 }
     
+    // Função para mostrar/esconder a chave PIX
+function toggleChavePix() {
+    const pagamento = document.getElementById('pagamento');
+    const containerPix = document.getElementById('container-chave-pix');
     
+    if (pagamento && containerPix) {
+        if (pagamento.value === 'PIX') {
+            containerPix.style.display = 'block';
+        } else {
+            containerPix.style.display = 'none';
+        }
+    }
+}
+
+// Função para copiar a chave PIX
+function copiarChavePix() {
+    const chave = '19982412638';
+    navigator.clipboard.writeText(chave).then(() => {
+        const btn = document.querySelector('.btn-copiar-pix');
+        const textoOriginal = btn.innerHTML;
+        btn.innerHTML = '✅ Copiado!';
+        setTimeout(() => {
+            btn.innerHTML = textoOriginal;
+        }, 2000);
+    }).catch(err => {
+        alert('Não foi possível copiar. Copie manualmente: ' + chave);
+    });
+}
     
     inicializar();
 </script>
